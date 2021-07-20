@@ -20,7 +20,8 @@ export const globalDataReducer = function (root = initialState, action) {
                     {
                         name:action.payload
                     }
-                ]
+                ],
+                showAlert: true
             };
         case Actions.SEARCH_FRIEND:
             return {
@@ -45,6 +46,11 @@ export const globalDataReducer = function (root = initialState, action) {
             return {
                 ...root,
                 page:action.payload
+            };
+        case Actions.SHOW_ALERT:
+            return {
+                ...root,
+                showAlert:action.payload
             };
         default:
             return root

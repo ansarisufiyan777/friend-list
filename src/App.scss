@@ -205,12 +205,21 @@ body {
     cursor: pointer;
   }
 }
-.sorting{
+.sorting {
   display: flex;
   justify-content: space-between;
   color: white;
   cursor: pointer;
-  :nth-child(2){
+  :nth-child(2) {
     margin-right: 50px;
   }
+}
+.alert {
+  position: absolute;
+  right: 5%;
+  top: 5%;
+  background-color: rgba(39, 255, 180, 0.6);
+  padding: 0 20px;
+  border-radius: 10px;
+  color: white;
 }

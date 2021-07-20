@@ -1,13 +1,19 @@
 import './App.scss';
+import React from 'react';
 import { connect, Provider } from 'react-redux';
 import Home from './screens/Home';
-function App() {
+import Alert from './component/Alert';
+function App(props) {
+  
   return (
-    <Home></Home>
+    <React.Fragment>
+      <Home></Home>
+      {props.showAlert && <Alert></Alert>}
+    </React.Fragment>
   );
 }
 
-const mapStateToProps = (data) => ({ 
-  user: data.globalData.user
+const mapStateToProps = (data) => ({
+  showAlert: data.globalData.showAlert
 })
 export default connect(mapStateToProps)(App)

@@ -1,4 +1,4 @@
-import { ADD_FRIEND, CHANGE_PAGE, SEARCH_FRIEND, SORT_FAV, SORT_ON_NAME, TOGGLE_DELETE, TOGGLE_FAVOURITE } from "../Constants";
+import { ADD_FRIEND, CHANGE_PAGE, SEARCH_FRIEND, SHOW_ALERT, SORT_FAV, SORT_ON_NAME, TOGGLE_DELETE, TOGGLE_FAVOURITE } from "../Constants";
 
 export const addFriend = (value) => {
   return (dispatch) => {
@@ -52,6 +52,14 @@ export const applySortOnFav = (value) => {
   return (dispatch) => {
     dispatch({
       type: SORT_FAV,
+      payload: value,
+    });
+  };
+};
+export const showAlert = (value) => {
+  return (dispatch) => {
+    dispatch({
+      type: SHOW_ALERT,
       payload: value,
     });
   };
