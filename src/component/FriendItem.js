@@ -5,6 +5,14 @@ import { faStar, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons'
 import { toggleDelete, toggleToFavourite } from '../redux/GlobalActions';
 function FriendItem(props) {
+    const onDelete = () => {
+        if (props.item.isDelete){
+            props.dispatch(toggleDelete(props.item))
+        }
+        else if(window.confirm("Do u really want to delete your friend?")){
+            props.dispatch(toggleDelete(props.item))
+        }
+    }
     return (
         <div className={`item ${props.item.isFav ? 'blue': 'orange'} `}>
             <div className={`data ${props.item.isDelete && 'deleted'}` }>
@@ -13,7 +21,7 @@ function FriendItem(props) {
             </div>
             <div className="action-button">
                 <FontAwesomeIcon onClick={() => props.dispatch(toggleToFavourite(props.item))}  icon={props.item.isFav ? faStar : farStar} />
-                <FontAwesomeIcon onClick={() => props.dispatch(toggleDelete(props.item))} icon={faTrash} />
+                <FontAwesomeIcon onClick={() => onDelete()} icon={faTrash} />
             </div>
         </div>
     );
